@@ -1,4 +1,5 @@
 import React from 'react';
+// cart stylesheet
 import './cart.css'
 const Cart = () => {
     return (
@@ -19,12 +20,12 @@ const Cart = () => {
                         <tr>
                             {/* <!-- product price --> */}
                             <th>Price:</th>
-                            <td>$ <span id="price">0</span></td>
+                            <td>฿ <span id="price">0</span></td>
                         </tr>
                         <tr>
                             {/* <!-- total --> */}
                             <th scope="row">Total</th>
-                            <td colspan="2">$ <span id="total">0</span></td>
+                            <td colspan="2">฿ <span id="total">0</span></td>
                             <td></td>
                         </tr>
                     </tbody>

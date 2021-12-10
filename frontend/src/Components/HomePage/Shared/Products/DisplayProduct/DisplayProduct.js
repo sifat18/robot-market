@@ -18,7 +18,7 @@ const DisplayProduct = ({ product }) => {
                 <Card.Body>
                     {/* robot details */}
                     <Card.Title>{name}</Card.Title>
-                    <Card.Text>Price: {price}</Card.Text>
+                    <Card.Text>Price: ฿{price}</Card.Text>
                     <Card.Text>Stock: {stock}</Card.Text>
                     <Card.Text>Date: {dateMDY}</Card.Text>
                     <Button variant="primary">Add to cart</Button>
