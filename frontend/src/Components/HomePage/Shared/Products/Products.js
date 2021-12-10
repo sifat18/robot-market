@@ -16,13 +16,13 @@ const Products = ({ productData }) => {
                 {/* creating row column */}
                 <Row>
                     {/* product column  */}
-                    <Col xs={7}>
+                    <Col xs={8}>
                         <Row xs={1} md={2} lg={3} className="g-4">
                             {productData.map(data => <DisplayProduct product={data} />)}
                         </Row>
                     </Col>
                     {/* cart column */}
-                    <Col xs={5}>
+                    <Col xs={4}>
 
                     </Col>
                 </Row>
