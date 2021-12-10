@@ -8,7 +8,7 @@ const Shop = ({ productData }) => {
     // setting display data state
     const [displayRobot, setDisplayRobot] = useState([])
 
-
+    // re rendering when search is reset  
     useEffect(() => {
         setDisplayRobot(productData);
     }, [productData]);
@@ -16,10 +16,14 @@ const Shop = ({ productData }) => {
 
     // search function filter
     const handlesearch = event => {
+        // getting text value
         let text = event.target.value;
+        // filtering the material type
         let result = productData.filter(robots => robots.material.toLowerCase().includes(text.toLowerCase()))
+        // setting to display
         setDisplayRobot(result);
-        console.log(result)
+        // testing
+        // console.log(result)
     }
     return (
         <div className='bg-color'>
