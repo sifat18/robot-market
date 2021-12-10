@@ -23,15 +23,17 @@ const Banner = () => {
             {/* nav ends here */}
             {/* carousel section starts here */}
             <Carousel>
+                {/* first slide img */}
                 <Carousel.Item interval={1000}>
                     <img
                         className="d-block w-100"
                         src={robot1}
                         alt="First slide"
                     />
+                    {/* first slide message */}
                     <Carousel.Caption>
-                        <h3>One Team. One Robot. Limitless Possibilities!! </h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3 className='fs-2'>WELCOME TO THE ROBOSHOP</h3>
+                        <p className=' fs-3'>One Team. One Robot. Limitless Possibilities!!</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
