@@ -32,19 +32,23 @@ const Banner = () => {
                     />
                     {/* first slide message */}
                     <Carousel.Caption>
-                        <h3 className='fs-2'>WELCOME TO THE ROBOSHOP</h3>
+                        <h3 className=' fw-bold fs-2'>WELCOME TO THE ROBOSHOP</h3>
                         <p className=' fs-3'>One Team. One Robot. Limitless Possibilities!!</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
+                    {/* second slide img */}
+
                     <img
                         className="d-block w-100"
                         src={robot2}
                         alt="Second slide"
                     />
+                    {/* second slide message */}
+
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 className='text-dark fw-bold fs-2'>Intelligence In Action</h3>
+                        <p className='text-dark fs-3'>Power of Applied Intelligence!</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -54,7 +58,7 @@ const Banner = () => {
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
+                        <h3>Robotics & Technology Services</h3>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
