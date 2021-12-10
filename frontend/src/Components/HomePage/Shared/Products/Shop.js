@@ -15,7 +15,11 @@ const Shop = ({ productData }) => {
 
 
     // addto cart function for storaging locally
-
+    const heandleclick = (name) => {
+        let newcart = []
+        newcart.push(name)
+        console.log(newcart)
+    }
 
     // search function filter
     const handlesearch = event => {
@@ -42,7 +46,7 @@ const Shop = ({ productData }) => {
                     {/* product column  */}
                     <Col xs={8}>
                         <Row xs={1} md={2} lg={3} className="g-4">
-                            {displayRobot.map((data, index) => <DisplayProduct key={index} product={data} />)}
+                            {displayRobot.map((data, index) => <DisplayProduct key={index} btnAction={heandleclick} product={data} />)}
                         </Row>
                     </Col>
                     {/* cart column */}

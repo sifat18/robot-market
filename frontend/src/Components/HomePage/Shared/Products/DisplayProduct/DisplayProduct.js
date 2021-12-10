@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
 import './display.css'
-const DisplayProduct = ({ product }) => {
+const DisplayProduct = ({ product, btnAction }) => {
     // destructuring properties from product
     const { image, name, material, price, stock, createdAt } = product;
     // setting date format into Date-month-year
@@ -23,7 +23,7 @@ const DisplayProduct = ({ product }) => {
                     <Card.Text>Price: ฿{price}</Card.Text>
                     <Card.Text>Stock: {stock}</Card.Text>
                     <Card.Text>Date: {dateMDY}</Card.Text>
-                    <Button variant="primary">Add to cart</Button>
+                    <Button onClick={() => btnAction(name)} variant="primary">Add to cart</Button>
                 </Card.Body>
                 <Card.Footer className=" text-light">{material}</Card.Footer>
             </Card>
