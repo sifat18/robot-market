@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
-
+import './display.css'
 const DisplayProduct = ({ product }) => {
     // destructuring properties from product
     const { image, name, material, price, stock, createdAt } = product;
@@ -10,9 +10,11 @@ const DisplayProduct = ({ product }) => {
 
     return (
         <Col>
-            <Card className="text-center">
+            <Card className="text-center card cardBG">
                 {/* robot image */}
-                <Card.Img variant="top" src={image} />
+                <div className="image-box">
+                    <Card.Img variant="top" src={image} className='image' />
+                </div>
                 <Card.Body>
                     {/* robot details */}
                     <Card.Title>{name}</Card.Title>
@@ -21,7 +23,7 @@ const DisplayProduct = ({ product }) => {
                     <Card.Text>Date: {dateMDY}</Card.Text>
                     <Button variant="primary">Add to cart</Button>
                 </Card.Body>
-                <Card.Footer className="text-muted">{material}</Card.Footer>
+                <Card.Footer className=" text-light">{material}</Card.Footer>
             </Card>
         </Col>
     );

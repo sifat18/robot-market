@@ -1,3 +1,7 @@
+/* setting background for product column */
+.bg-color{
+    background-color: #2F4F4F;
+}
 /* search div style */
 .searchDiv{
     background-color:rgba(0, 0, 0, 0.889);
