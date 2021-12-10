@@ -1,5 +1,6 @@
 import * as React from 'react';
-
+// bootstrap style
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
