@@ -22,7 +22,7 @@ const Banner = () => {
             </Navbar>
             {/* nav ends here */}
             {/* carousel section starts here */}
-            <Carousel className='mb-5'>
+            <Carousel >
                 {/* first slide img */}
                 <Carousel.Item interval={1000}>
                     <img
