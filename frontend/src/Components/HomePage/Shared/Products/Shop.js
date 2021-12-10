@@ -14,6 +14,9 @@ const Shop = ({ productData }) => {
     }, [productData]);
 
 
+    // addto cart function for storaging locally
+
+
     // search function filter
     const handlesearch = event => {
         // getting text value
