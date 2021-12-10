@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
 import './product.css'
-const Products = ({ productData }) => {
+const Shop = ({ productData }) => {
     return (
         <div className='bg-color'>
             {/* search div  */}
@@ -31,4 +31,4 @@ const Products = ({ productData }) => {
     );
 };
 
-export default Products;
+export default Shop;

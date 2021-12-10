@@ -1,14 +1,14 @@
 import React from 'react';
 import useRobotData from '../CustomHook/dataload';
 import Banner from './Shared/Banner/Banner';
-import Products from './Shared/Products/Products';
+import Shop from './Shared/Products/Shop';
 
 const Home = () => {
     const [robotData, setrobotData] = useRobotData()
     return (
         <>
             <Banner />
-            <Products productData={robotData} />
+            <Shop productData={robotData} />
         </>
     );
 };
