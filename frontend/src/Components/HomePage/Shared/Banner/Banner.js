@@ -52,14 +52,18 @@ const Banner = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
+                    {/* third slide image */}
+
                     <img
                         className="d-block w-100"
                         src={robot3}
                         alt="Third slide"
                     />
+                    {/* third slide message */}
+
                     <Carousel.Caption>
-                        <h3>Robotics & Technology Services</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3 className='fs-2 fw-bold'>Robotics & Technology</h3>
+                        <p className='fs-3'>Combining Science with Metal and Machining</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
