@@ -28,7 +28,7 @@ const Shop = ({ productData }) => {
                     </Col>
                 </Row>
             </Container>
-        </div>
+        </div >
     );
 };
 
