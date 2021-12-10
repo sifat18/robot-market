@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import Cart from '../Cart/Cart';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
 import './product.css'
@@ -23,7 +24,7 @@ const Shop = ({ productData }) => {
                     </Col>
                     {/* cart column */}
                     <Col xs={4}>
-
+                        <Cart />
                     </Col>
                 </Row>
             </Container>
