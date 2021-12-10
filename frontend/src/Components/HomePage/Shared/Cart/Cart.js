@@ -3,7 +3,7 @@ import React from 'react';
 import './cart.css'
 const Cart = () => {
     return (
-        <div className='ms-5'>
+        <div className='ms-2'>
             <div className="cart " id="my-cart">
                 <table className="table text-white" fixed='top'>
                     {/* <!-- table header --> */}
@@ -25,7 +25,7 @@ const Cart = () => {
                         <tr>
                             {/* <!-- total --> */}
                             <th scope="row">Total</th>
-                            <td colspan="2">฿ <span id="total">0</span></td>
+                            <td colSpan="2">฿ <span id="total">0</span></td>
                             <td></td>
                         </tr>
                     </tbody>

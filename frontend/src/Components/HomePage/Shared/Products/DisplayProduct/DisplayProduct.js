@@ -6,7 +6,9 @@ const DisplayProduct = ({ product }) => {
     const { image, name, material, price, stock, createdAt } = product;
     // setting date format into Date-month-year
     let date = new Date(createdAt);
-    let dateMDY = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    let day = ("0" + date.getDate()).slice(-2)
+    let month = ("0" + (date.getMonth() + 1)).slice(-2)
+    let dateMDY = `${day}-${month}-${date.getFullYear()}`;
 
     return (
         <Col>

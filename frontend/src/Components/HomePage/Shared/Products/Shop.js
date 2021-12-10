@@ -39,7 +39,7 @@ const Shop = ({ productData }) => {
                     {/* product column  */}
                     <Col xs={8}>
                         <Row xs={1} md={2} lg={3} className="g-4">
-                            {displayRobot.map(data => <DisplayProduct product={data} />)}
+                            {displayRobot.map((data, index) => <DisplayProduct key={index} product={data} />)}
                         </Row>
                     </Col>
                     {/* cart column */}
