@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <Banner />
-            <Products />
+            <Products productData={robotData} />
         </>
     );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
 import './product.css'
-const Products = () => {
+const Products = ({ productData }) => {
     return (
         <>
             {/* search div  */}
@@ -16,8 +17,8 @@ const Products = () => {
                 <Row>
                     {/* product column  */}
                     <Col xs={7}>
-                        <Row>
-
+                        <Row xs={1} md={2} lg={3} className="g-4">
+                            {productData.map(data => <DisplayProduct product={data} />)}
                         </Row>
                     </Col>
                     {/* cart column */}
