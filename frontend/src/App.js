@@ -1,11 +1,14 @@
 import * as React from 'react';
-// bootstrap style
+//import  bootstrap style
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Components/HomePage/Home';
+//import components
 function App() {
   return (
     <div className="App">
-      <h1>Robot Market</h1>
       {/*Add your code here*/}
+      {/* adding components */}
+      <Home />
     </div>
   );
 }
