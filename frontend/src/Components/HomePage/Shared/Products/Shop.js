@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import useCart from '../../../CustomHook/CartData';
 import Cart from '../Cart/Cart';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
@@ -7,8 +8,8 @@ import './product.css'
 const Shop = ({ productData }) => {
     // setting display data state
     const [displayRobot, setDisplayRobot] = useState([])
-    // setting display cart data state
-    const [cart, setCart] = useState([])
+    // setting  cart data state
+    const [cart, setCart] = useCart(productData)
 
     // re rendering when search is reset  
     useEffect(() => {
