@@ -19,11 +19,11 @@ const Shop = ({ productData }) => {
 
 
     // add to cart function for storaging locally
-    const handleAddToCart = (name) => {
-        const newCart = [...cart, name];
+    const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
         setCart(newCart);
         // save to local storage (for now)
-        addToDb(name);
+        addToDb(product.name);
 
     }
 
@@ -57,7 +57,7 @@ const Shop = ({ productData }) => {
                     </Col>
                     {/* cart column */}
                     <Col xs={4}>
-                        <Cart />
+                        <Cart cartData={cart} />
                     </Col>
                 </Row>
             </Container>
