@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import useCart from '../../../CustomHook/CartData';
-import { addToDb } from '../../../LocalStorage/local';
+import { addToDb, deleteFromDb } from '../../../LocalStorage/local';
 import Cart from '../Cart/Cart';
 import ShowCartProduct from '../ShowCartProduct/ShowCartProduct';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
@@ -20,18 +20,45 @@ const Shop = ({ productData, setData }) => {
         setDisplayRobot(productData);
     }, [productData]);
 
+    const handleRemoveFromCart = (product) => {
+        let newCart = [];
+        const exists = cart.find(robot => robot.name === product.name);
+
+        if (exists && exists.quantity > 0) {
+            const rest = cart.filter(data => data.name !== product.name);
+            exists.quantity = exists.quantity - 1;
+            product.stock = product.stock + 1;
+
+            newCart = [...rest, product];
+        } else {
+
+            // if not exist set to 1 
+            product.quantity = 0;
+            newCart = [...cart, product];
+        }
+        deleteFromDb(product.name);
+        setCart(newCart);
+
+    }
+
     // add to cart function for storaging locally
     const handleAddToCart = (product) => {
+        // reducing stock on each click
         if (product.stock > 0) {
             product.stock = product.stock - 1;
         }
+
         let newCart = [];
+
+        // checking if the product is already added
         const exists = cart.find(robot => robot.name === product.name);
         if (exists) {
             const rest = cart.filter(data => data.name !== product.name);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, product];
         } else {
+
+            // if not exist set to 1 
             product.quantity = 1;
             newCart = [...cart, product];
         }
@@ -71,7 +98,7 @@ const Shop = ({ productData, setData }) => {
                     {/* cart column */}
                     <Col xs={4}>
                         <Cart cartData={cart} />
-                        <ShowCartProduct product={cart} />
+                        <ShowCartProduct product={cart} remove={handleRemoveFromCart} />
 
                     </Col>
                 </Row>

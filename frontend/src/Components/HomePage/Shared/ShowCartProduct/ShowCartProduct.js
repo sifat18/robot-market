@@ -1,14 +1,14 @@
 import React from 'react';
 import { Container, Table } from 'react-bootstrap';
-import useCart from '../../../CustomHook/CartData';
+// import useCart from '../../../CustomHook/CartData';
 
-const ShowCartProduct = ({ product }) => {
-    const [cart] = useCart(product)
+const ShowCartProduct = ({ product, remove }) => {
+    // const [cart] = useCart(product)
     return (
 
         <Container className=''>
-            {/* display if cart exists */}
-            {cart.length ?
+            {/* display if product exists */}
+            {product.length ?
                 <Table className='text-light' responsive striped bordered hover>
                     <thead>
                         {/* table headers */}
@@ -20,13 +20,13 @@ const ShowCartProduct = ({ product }) => {
                     </thead>
 
                     {/*carts products display  */}
-                    {cart.map(data => (
+                    {product.map(data => (
                         <tbody >
 
                             <tr key={data.name}>
                                 <td className='text-light text-center'>{data?.name}</td>
                                 <td className='text-light text-center'>{data?.price * data.quantity}</td>
-                                <td className='text-light text-center'>{data?.quantity}</td>
+                                <td className='text-light text-center'><span onClick={() => remove(data)}><i className="far fa-minus-square"></i></span> {data?.quantity} <span onClick={() => remove(data)}><i className="far fa-plus-square"></i></span></td>
                             </tr>
                         </tbody>
 

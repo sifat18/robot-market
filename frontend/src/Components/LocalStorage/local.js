@@ -41,7 +41,13 @@ const removeFromDb = name => {
     // delete the data
     else {
         const robot_box = JSON.parse(exists);
-        delete robot_box[name];
+        if (robot_box[name] === 0) {
+
+            delete robot_box[name]
+        } else {
+            const newCount = robot_box[name] - 1;
+            robot_box[name] = newCount;
+        }
         updateDb(robot_box);
     }
 }
