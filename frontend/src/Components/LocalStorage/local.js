@@ -46,8 +46,14 @@ const removeFromDb = name => {
     }
 }
 
-//  return cart
+//  return cart status
 const getStoredCart = () => {
     const exists = getDb();
     return exists ? JSON.parse(exists) : {};
 }
+// clearing the storage
+const clearTheCart = () => {
+    localStorage.removeItem('robot_box');
+}
+
+export { addToDb, removeFromDb as deleteFromDb, clearTheCart, getStoredCart }

@@ -7,6 +7,8 @@ import './product.css'
 const Shop = ({ productData }) => {
     // setting display data state
     const [displayRobot, setDisplayRobot] = useState([])
+    // setting display cart data state
+    const [cart, setCart] = useState([])
 
     // re rendering when search is reset  
     useEffect(() => {
