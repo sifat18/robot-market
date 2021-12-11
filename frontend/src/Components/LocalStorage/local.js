@@ -1,7 +1,7 @@
 // adding to local storage
 const addToDb = name => {
     // checking if there is a storage
-    const exists = localStorage.getItem('robot_box');
+    const exists = getDb();
     // initalize storage
     let robot_box = {};
     //add to robot box when it doesnt exist
@@ -23,6 +23,11 @@ const addToDb = name => {
         }
     }
     // updating the localstorage add function
-    localStorage.setItem('robot_box', JSON.stringify(robot_box));
+    updateDb(robot_box);
 }
-
+// get the storage
+const getDb = () => localStorage.getItem('robot_box');
+// update the storage
+const updateDb = cart => {
+    localStorage.setItem('robot_box', JSON.stringify(cart));
+}

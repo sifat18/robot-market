@@ -1,4 +1,3 @@
-//reducing auto import delay
 {
     "exclude": [
         "node_modules"
