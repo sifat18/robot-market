@@ -31,3 +31,23 @@ const getDb = () => localStorage.getItem('robot_box');
 const updateDb = cart => {
     localStorage.setItem('robot_box', JSON.stringify(cart));
 }
+// removing from storage
+const removeFromDb = name => {
+    // getting storage if exists
+    const exists = getDb();
+    if (!exists) {
+        //   do nothing 
+    }
+    // delete the data
+    else {
+        const robot_box = JSON.parse(exists);
+        delete robot_box[name];
+        updateDb(robot_box);
+    }
+}
+
+//  return cart
+const getStoredCart = () => {
+    const exists = getDb();
+    return exists ? JSON.parse(exists) : {};
+}
