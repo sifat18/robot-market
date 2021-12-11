@@ -2,6 +2,7 @@ import React from 'react';
 // cart stylesheet
 import './cart.css'
 const Cart = ({ cartData }) => {
+    console.log(cartData)
     // setting quantity and total 
     let totalQuantity = 0;
     let total = 0;
@@ -15,6 +16,7 @@ const Cart = ({ cartData }) => {
     }
     return (
         <div className='ms-2'>
+            {/* cart table */}
             <div className="cart " id="my-cart">
                 <table className="table text-white" fixed='top'>
                     {/* <!-- table header --> */}
@@ -25,7 +27,7 @@ const Cart = ({ cartData }) => {
                     <tbody>
                         <tr>
                             {/* <!-- product count --> */}
-                            <th>Total Added-Products:</th>
+                            <th>Total Added-Robots:</th>
                             <td><span id="total-Products">{totalQuantity}</span></td>
                         </tr>
                         <tr>
@@ -38,6 +40,7 @@ const Cart = ({ cartData }) => {
                 </table>
             </div>
         </div>
+
     );
 };
 

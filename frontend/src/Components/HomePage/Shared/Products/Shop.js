@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import useCart from '../../../CustomHook/CartData';
 import { addToDb } from '../../../LocalStorage/local';
 import Cart from '../Cart/Cart';
+import ShowCartProduct from '../ShowCartProduct/ShowCartProduct';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
 import './product.css'
@@ -24,8 +25,16 @@ const Shop = ({ productData, setData }) => {
         if (product.stock > 0) {
             product.stock = product.stock - 1;
         }
-
-        const newCart = [...cart, product];
+        let newCart = [];
+        const exists = cart.find(robot => robot.name === product.name);
+        if (exists) {
+            const rest = cart.filter(data => data.name !== product.name);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, product];
+        } else {
+            product.quantity = 1;
+            newCart = [...cart, product];
+        }
         setCart(newCart);
         // save to local storage (for now)
         addToDb(product.name);
@@ -62,6 +71,8 @@ const Shop = ({ productData, setData }) => {
                     {/* cart column */}
                     <Col xs={4}>
                         <Cart cartData={cart} />
+                        <ShowCartProduct product={cart} />
+
                     </Col>
                 </Row>
             </Container>
