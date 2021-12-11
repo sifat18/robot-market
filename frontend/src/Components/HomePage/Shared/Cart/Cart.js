@@ -5,6 +5,7 @@ const Cart = ({ cartData }) => {
     // setting quantity and total 
     let totalQuantity = 0;
     let total = 0;
+    // setting quantity if no quantity found
     for (const product of cartData) {
         if (!product.quantity) {
             product.quantity = 1;

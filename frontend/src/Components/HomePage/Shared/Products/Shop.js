@@ -6,25 +6,29 @@ import Cart from '../Cart/Cart';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
 import './product.css'
-const Shop = ({ productData }) => {
+const Shop = ({ productData, setData }) => {
     // setting display data state
     const [displayRobot, setDisplayRobot] = useState([])
+
     // setting  cart data state
     const [cart, setCart] = useCart(productData)
+
 
     // re rendering when search is reset  
     useEffect(() => {
         setDisplayRobot(productData);
     }, [productData]);
 
-
     // add to cart function for storaging locally
     const handleAddToCart = (product) => {
+        if (product.stock > 0) {
+            product.stock = product.stock - 1;
+        }
+
         const newCart = [...cart, product];
         setCart(newCart);
         // save to local storage (for now)
         addToDb(product.name);
-
     }
 
     // search function filter

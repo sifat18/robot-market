@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <Banner />
-            <Shop productData={robotData} />
+            <Shop productData={robotData} setData={setrobotData} />
         </>
     );
 };
