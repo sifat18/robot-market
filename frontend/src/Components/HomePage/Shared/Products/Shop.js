@@ -20,6 +20,7 @@ const Shop = ({ productData, setData }) => {
         setDisplayRobot(productData);
     }, [productData]);
 
+    // remove from UI
     const handleRemoveFromCart = (product) => {
         let newCart = [];
         const exists = cart.find(robot => robot.name === product.name);
@@ -36,6 +37,7 @@ const Shop = ({ productData, setData }) => {
             product.quantity = 0;
             newCart = [...cart, product];
         }
+        // remove from local
         deleteFromDb(product.name);
         setCart(newCart);
 
@@ -98,7 +100,7 @@ const Shop = ({ productData, setData }) => {
                     {/* cart column */}
                     <Col xs={4}>
                         <Cart cartData={cart} />
-                        <ShowCartProduct product={cart} remove={handleRemoveFromCart} />
+                        <ShowCartProduct product={cart} remove={handleRemoveFromCart} add={handleAddToCart} />
 
                     </Col>
                 </Row>

@@ -44,7 +44,7 @@ const removeFromDb = name => {
         if (robot_box[name] === 0) {
 
             delete robot_box[name]
-        } else {
+        } else if (robot_box[name] > 0) {
             const newCount = robot_box[name] - 1;
             robot_box[name] = newCount;
         }

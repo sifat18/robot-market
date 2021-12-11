@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Table } from 'react-bootstrap';
 // import useCart from '../../../CustomHook/CartData';
 
-const ShowCartProduct = ({ product, remove }) => {
+const ShowCartProduct = ({ product, remove, add }) => {
     // const [cart] = useCart(product)
     return (
 
@@ -26,7 +26,7 @@ const ShowCartProduct = ({ product, remove }) => {
                             <tr key={data.name}>
                                 <td className='text-light text-center'>{data?.name}</td>
                                 <td className='text-light text-center'>{data?.price * data.quantity}</td>
-                                <td className='text-light text-center'><span onClick={() => remove(data)}><i className="far fa-minus-square"></i></span> {data?.quantity} <span onClick={() => remove(data)}><i className="far fa-plus-square"></i></span></td>
+                                <td className='text-light text-center'><span className={data.quantity ? '' : 'disabled'} onClick={() => remove(data)}><i className={!data?.quantity ? `disabled` : "far fa-minus-square"}></i></span> {data?.quantity} <span onClick={() => add(data)}><i className={!data?.stock ? `disabled` : 'far fa-plus-square'}></i></span></td>
                             </tr>
                         </tbody>
 
