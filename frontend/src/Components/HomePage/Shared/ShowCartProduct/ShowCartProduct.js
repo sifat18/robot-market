@@ -6,24 +6,27 @@ const ShowCartProduct = ({ product }) => {
     const [cart] = useCart(product)
     return (
 
-        <Container className='ms-1'>
-
+        <Container className=''>
+            {/* display if cart exists */}
             {cart.length ?
                 <Table className='text-light' responsive striped bordered hover>
                     <thead>
+                        {/* table headers */}
                         <tr>
-                            <th>Robot Name</th>
-                            <th>Price</th>
-                            <th>Count</th>
+                            <th className='text-center'>Robot Name</th>
+                            <th className='text-center'>Price</th>
+                            <th className='text-center'>Count</th>
                         </tr>
                     </thead>
+
+                    {/*carts products display  */}
                     {cart.map(data => (
                         <tbody >
 
-                            <tr >
-                                <td className='text-light'>{data?.name}</td>
-                                <td className='text-light'>{data?.price * data.quantity}</td>
-                                <td className='text-light'>{data?.quantity}</td>
+                            <tr key={data.name}>
+                                <td className='text-light text-center'>{data?.name}</td>
+                                <td className='text-light text-center'>{data?.price * data.quantity}</td>
+                                <td className='text-light text-center'>{data?.quantity}</td>
                             </tr>
                         </tbody>
 
