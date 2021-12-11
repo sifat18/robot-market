@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import useCart from '../../../CustomHook/CartData';
+import { addToDb } from '../../../LocalStorage/local';
 import Cart from '../Cart/Cart';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
@@ -17,11 +18,13 @@ const Shop = ({ productData }) => {
     }, [productData]);
 
 
-    // addto cart function for storaging locally
-    const heandleclick = (name) => {
-        let newcart = []
-        newcart.push(name)
-        console.log(newcart)
+    // add to cart function for storaging locally
+    const handleAddToCart = (name) => {
+        const newCart = [...cart, name];
+        setCart(newCart);
+        // save to local storage (for now)
+        addToDb(name);
+
     }
 
     // search function filter
@@ -49,7 +52,7 @@ const Shop = ({ productData }) => {
                     {/* product column  */}
                     <Col xs={8}>
                         <Row xs={1} md={2} lg={3} className="g-4">
-                            {displayRobot.map((data, index) => <DisplayProduct key={index} btnAction={heandleclick} product={data} />)}
+                            {displayRobot.map((data, index) => <DisplayProduct key={index} btnAction={handleAddToCart} product={data} />)}
                         </Row>
                     </Col>
                     {/* cart column */}
