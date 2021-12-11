@@ -23,7 +23,7 @@ const DisplayProduct = ({ product, btnAction }) => {
                     <Card.Text>Price: ฿{price}</Card.Text>
                     <Card.Text>Stock: {stock}</Card.Text>
                     <Card.Text>Date: {dateMDY}</Card.Text>
-                    <Button onClick={() => btnAction(product)} variant="primary">Add to cart</Button>
+                    <Button onClick={() => btnAction(product)} variant="primary" className={!stock ? `disabled` : ``}>Add to cart</Button>
                 </Card.Body>
                 <Card.Footer className=" text-light">{material}</Card.Footer>
             </Card>
