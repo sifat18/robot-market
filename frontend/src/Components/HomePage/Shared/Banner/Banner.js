@@ -42,6 +42,7 @@ const Banner = () => {
                         className="d-block w-100"
                         src={robot1}
                         alt="First slide"
+                        height='700'
                     />
                     {/* first slide message */}
                     <Carousel.Caption>
@@ -56,6 +57,8 @@ const Banner = () => {
                         className="d-block w-100"
                         src={robot2}
                         alt="Second slide"
+                        height='700'
+
                     />
                     {/* second slide message */}
 
@@ -70,6 +73,7 @@ const Banner = () => {
                     <img
                         className="d-block w-100"
                         src={robot3}
+                        height='700'
                         alt="Third slide"
                     />
                     {/* third slide message */}
