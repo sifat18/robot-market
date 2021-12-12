@@ -3,7 +3,7 @@ import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
 
 import useCart from '../../../CustomHook/CartData';
 // function imported from local
-import { addToDb, deleteFromDb } from '../../../LocalStorage/local';
+import { addToDb, clearTheCart, deleteFromDb } from '../../../LocalStorage/local';
 
 // imported components 
 import Cart from '../Cart/Cart';
@@ -144,6 +144,10 @@ const Shop = ({ productData, setData }) => {
         // console.log(result)
     }
 
+    const clearStorage = () => {
+        clearTheCart()
+        setCart([])
+    }
 
     return (
         <div className='bg-color pb-5'>
@@ -165,7 +169,7 @@ const Shop = ({ productData, setData }) => {
                     {/* cart column */}
                     <Col xs={4}>
                         {/* component that shows total amounts */}
-                        <Cart cartData={cart} />
+                        <Cart cartData={cart} clear={clearStorage} />
 
                         {/* component that shows selected products */}
                         <ShowCartProduct product={cart} remove={handleRemoveFromCart} add={handleAddToCart} />

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 // cart stylesheet
 import './cart.css'
-const Cart = ({ cartData }) => {
+const Cart = ({ cartData, clear }) => {
     // console.log(cartData)
 
     // initialize quantity and total 
@@ -39,6 +40,7 @@ const Cart = ({ cartData }) => {
                         </tr>
                     </tbody>
                 </table>
+                <Button onClick={() => clear()} variant="primary" >Remove Storage</Button>
             </div>
         </div>
 
