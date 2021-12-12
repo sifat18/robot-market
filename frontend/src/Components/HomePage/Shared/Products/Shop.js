@@ -161,9 +161,10 @@ const Shop = ({ productData, setData }) => {
             </div>
 
             {/* shop headline */}
-            <h2 className='text-center text-light fs-2 fw-bold pt-5'>WELCOME TO ROBOSHOP</h2>
-            <hr className='mx-auto w-25 text-light mb-5' />
-
+            <div data-aos="fade-up">
+                <h2 className='text-center text-light fs-2 fw-bold pt-5'>WELCOME TO ROBOSHOP</h2>
+                <hr className='mx-auto w-25 text-light mb-5' />
+            </div>
             {/* dividing display into product and cart */}
             <Container fluid className='mt-5'>
                 {/* creating row column */}
@@ -180,7 +181,7 @@ const Shop = ({ productData, setData }) => {
                         <Cart cartData={cart} clear={clearStorage} />
 
                         {/* component that shows selected products */}
-                        <ShowCartProduct product={cart} remove={handleRemoveFromCart} add={handleAddToCart} />
+                        <ShowCartProduct product={cart} remove={handleRemoveFromCart} add={handleAddToCart} clear={clearStorage} />
 
                     </Col>
                 </Row>

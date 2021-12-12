@@ -11,23 +11,25 @@ const DisplayProduct = ({ product, btnAction }) => {
     let dateMDY = `${day}-${month}-${date.getFullYear()}`;
 
     return (
-        <Col>
-            <Card className="text-center card cardBG">
-                {/* robot image */}
-                <div className="image-box">
-                    <Card.Img variant="top" src={image} className='image' />
-                </div>
-                <Card.Body>
-                    {/* robot details */}
-                    <Card.Title><span className='fw-bold'>{name}</span></Card.Title>
-                    <Card.Text><span className='fw-bold'> Price:</span> ฿{price}</Card.Text>
-                    <Card.Text><span className='fw-bold'>Stock:</span> {stock}</Card.Text>
-                    <Card.Text><span className='fw-bold'>Date:</span> {dateMDY}</Card.Text>
-                    <Button onClick={() => btnAction(product)} variant="primary" className={!stock ? `disabled` : ``}>Add to cart</Button>
-                </Card.Body>
-                <Card.Footer className="fw-bold text-light">{material}</Card.Footer>
-            </Card>
-        </Col>
+        <div data-aos="fade-right">
+            <Col>
+                <Card className="text-center card cardBG">
+                    {/* robot image */}
+                    <div className="image-box">
+                        <Card.Img variant="top" src={image} className='image' />
+                    </div>
+                    <Card.Body>
+                        {/* robot details */}
+                        <Card.Title><span className='fw-bold'>{name}</span></Card.Title>
+                        <Card.Text><span className='fw-bold'> Price:</span> ฿{price}</Card.Text>
+                        <Card.Text><span className='fw-bold'>Stock:</span> {stock}</Card.Text>
+                        <Card.Text><span className='fw-bold'>Date:</span> {dateMDY}</Card.Text>
+                        <Button onClick={() => btnAction(product)} variant="primary" className={!stock ? `disabled` : ``}>Add to cart</Button>
+                    </Card.Body>
+                    <Card.Footer className="fw-bold text-light">{material}</Card.Footer>
+                </Card>
+            </Col>
+        </div>
     );
 };
 

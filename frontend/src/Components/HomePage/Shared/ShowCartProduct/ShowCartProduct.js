@@ -1,7 +1,11 @@
 import React from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Button, Container, Table } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import './showcart.css'
-const ShowCartProduct = ({ product, remove, add }) => {
+
+
+const ShowCartProduct = ({ product, remove, add, clear }) => {
+
     return (
 
         <Container className='producttable mt-2'>
@@ -30,6 +34,7 @@ const ShowCartProduct = ({ product, remove, add }) => {
 
                     ))
                     }
+                    <NavLink to='/success'><Button onClick={() => clear()} className='mx-auto  w-50' variant="warning" >Book</Button></NavLink>
                 </Table> : ''}
 
         </Container>

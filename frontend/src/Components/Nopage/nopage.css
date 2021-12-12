@@ -1,0 +1,7 @@
+.bg{
+    background-image: url('./error.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}

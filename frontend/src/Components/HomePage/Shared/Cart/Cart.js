@@ -17,7 +17,7 @@ const Cart = ({ cartData, clear }) => {
     }
     return (
         // displaying total quantity and price
-        <div className='ms-2'>
+        <div className='ms-2' data-aos="fade-up-left">
             {/* cart table */}
             <div className="cart " id="my-cart">
                 <table className="table text-white" fixed='top'>
