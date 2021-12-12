@@ -34,9 +34,9 @@ const Shop = ({ productData, setData }) => {
         // checking if exists
         const exists = cart.find(robot => robot.name === product.name);
         // remove 1 item from cart and add 1 to stock
-        if (exists && exists.quantity > 0) {
+        if (exists && exists?.quantity > 0) {
             const rest = cart.filter(data => data.name !== product.name);
-            exists.quantity = exists.quantity - 1;
+            exists.quantity = exists?.quantity - 1;
             product.stock = product.stock + 1;
 
             newCart = [...rest, product];
