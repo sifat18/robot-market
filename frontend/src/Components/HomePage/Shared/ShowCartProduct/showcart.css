@@ -1,0 +1,9 @@
+
+/* setting margin of cart product table */
+.producttable{
+    margin-left: -0.5rem;
+}
+/* setting pointer style for increase decrease */
+.pointer{
+    cursor: pointer;
+}
