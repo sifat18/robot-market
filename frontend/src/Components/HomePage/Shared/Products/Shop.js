@@ -159,6 +159,8 @@ const Shop = ({ productData, setData }) => {
                 <h2 className='fs-2 fw-bold text-light mt-3'>Search</h2>
                 <input className='search w-50' onChange={handlesearch} placeholder='Search by materials' type="text" name="search" id="search" />
             </div>
+
+            {/* shop headline */}
             <h2 className='text-center text-light fs-2 fw-bold pt-5'>WELCOME TO ROBOSHOP</h2>
             <hr className='mx-auto w-25 text-light mb-5' />
 
