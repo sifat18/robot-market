@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
 import useCart from '../../../CustomHook/CartData';
 import { addToDb, deleteFromDb } from '../../../LocalStorage/local';
 import Cart from '../Cart/Cart';
@@ -10,6 +10,14 @@ import './product.css'
 const Shop = ({ productData, setData }) => {
     // setting display data state
     const [displayRobot, setDisplayRobot] = useState([])
+    // creating a set for storing unique materials 
+    const [uniqueMaterial, setUniqueMaterial] = useState([])
+
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     // setting  cart data state
     const [cart, setCart] = useCart(productData)
@@ -20,11 +28,12 @@ const Shop = ({ productData, setData }) => {
         setDisplayRobot(productData);
     }, [productData]);
 
-    // remove from UI
+    // remove items from cart 
     const handleRemoveFromCart = (product) => {
         let newCart = [];
+        // checking if exists
         const exists = cart.find(robot => robot.name === product.name);
-
+        // remove 1 item from cart and add 1 to stock
         if (exists && exists.quantity > 0) {
             const rest = cart.filter(data => data.name !== product.name);
             exists.quantity = exists.quantity - 1;
@@ -37,18 +46,47 @@ const Shop = ({ productData, setData }) => {
             product.quantity = 0;
             newCart = [...cart, product];
         }
-        // remove from local
+        // remove from localstorage
         deleteFromDb(product.name);
         setCart(newCart);
 
     }
 
+    // check material
+    const checkMaterials = material => {
+        console.log(`adding ${material}`)
+
+        // if not exists insert into array
+        let materialExist = uniqueMaterial.indexOf(material);
+        let newMaterials = [];
+
+        if (materialExist === -1) {
+            newMaterials = [...uniqueMaterial, material]
+            setUniqueMaterial(newMaterials)
+
+        } else {
+            // printing if alredy in array
+            console.log('already exists')
+        }
+    }
+
     // add to cart function for storaging locally
     const handleAddToCart = (product) => {
+        //    check material
+        checkMaterials(product.material)
+        // console.log(uniqueMaterial)
+
+        // if added 5 unique materials then return modal
+        if (uniqueMaterial.length === 4) {
+            handleShow()
+            return
+        }
+
         // reducing stock on each click
         if (product.stock > 0) {
             product.stock = product.stock - 1;
         }
+
 
         let newCart = [];
 
@@ -67,6 +105,7 @@ const Shop = ({ productData, setData }) => {
         setCart(newCart);
         // save to local storage (for now)
         addToDb(product.name);
+
     }
 
     // search function filter
@@ -105,6 +144,22 @@ const Shop = ({ productData, setData }) => {
                     </Col>
                 </Row>
             </Container>
+
+            {/* when 5 unique robots added display this  */}
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Added 5 different robots</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Can not add more!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        OKay
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div >
     );
 };
