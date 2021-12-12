@@ -27,7 +27,7 @@ const ShowCartProduct = ({ product, remove, add, clear }) => {
 
                             <tr key={data.name}>
                                 <td className='text-light text-center'>{data?.name}</td>
-                                <td className='text-light text-center'>{(data?.price * data.quantity).toFixed(2)}</td>
+                                <td className='text-light text-center'>฿{(data?.price * data.quantity).toFixed(2)}</td>
                                 <td className='text-light text-center'><span className='pointer' onClick={() => remove(data)}><i className={!data?.quantity ? `disabled` : "far fa-minus-square"}></i></span> {data?.quantity} <span className='pointer' onClick={() => add(data)}><i className={!data?.stock ? `disabled` : 'far fa-plus-square'}></i></span></td>
                             </tr>
                         </tbody>
