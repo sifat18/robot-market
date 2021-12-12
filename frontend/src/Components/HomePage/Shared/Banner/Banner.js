@@ -1,16 +1,28 @@
 import React from 'react';
+// imports from bootstrap
 import { Carousel, Container, Navbar } from 'react-bootstrap';
 // import images
 import robot1 from './bannerImg/robot1.png'
 import robot2 from './bannerImg/robot2.png'
 import robot3 from './bannerImg/robot3.png'
+import navPic from './bannerImg/robot4.png'
 const Banner = () => {
     return (
         <>
             {/* navbar section start and*/}
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+                    {/* logo */}
+                    <Navbar.Brand href="#home">
+                        <img
+                            alt=""
+                            src={navPic}
+                            width="30"
+                            height="30"
+                            className="d-inline-block align-top"
+                        />{' '}
+                        ROBOT~MARKET
+                    </Navbar.Brand>
                     <Navbar.Toggle />
                     {/* just for display */}
                     <Navbar.Collapse className="justify-content-end">

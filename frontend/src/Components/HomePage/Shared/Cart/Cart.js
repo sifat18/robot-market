@@ -2,17 +2,20 @@ import React from 'react';
 // cart stylesheet
 import './cart.css'
 const Cart = ({ cartData }) => {
-    console.log(cartData)
-    // setting quantity and total 
+    // console.log(cartData)
+
+    // initialize quantity and total 
     let totalQuantity = 0;
     let total = 0;
-    // setting quantity if no quantity found
+
+    // setting total quantity of products 
     for (const product of cartData) {
 
         total = total + product.price * product.quantity;
         totalQuantity = totalQuantity + product.quantity;
     }
     return (
+        // displaying total quantity and price
         <div className='ms-2'>
             {/* cart table */}
             <div className="cart " id="my-cart">

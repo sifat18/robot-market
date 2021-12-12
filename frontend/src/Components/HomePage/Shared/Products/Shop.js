@@ -13,9 +13,10 @@ const Shop = ({ productData, setData }) => {
     // creating a set for storing unique materials 
     const [uniqueMaterial, setUniqueMaterial] = useState([])
 
-
+    // bootstrap modal display condition state
     const [show, setShow] = useState(false);
 
+    // modal closing and displaying function
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -23,7 +24,7 @@ const Shop = ({ productData, setData }) => {
     const [cart, setCart] = useCart(productData)
 
 
-    // re rendering when search is reset  
+    // re-rendering when search is reset  
     useEffect(() => {
         setDisplayRobot(productData);
     }, [productData]);
@@ -93,6 +94,7 @@ const Shop = ({ productData, setData }) => {
         // checking if the product is already added
         const exists = cart.find(robot => robot.name === product.name);
         if (exists) {
+            // increasing quantity of existing product
             const rest = cart.filter(data => data.name !== product.name);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, product];
@@ -138,7 +140,10 @@ const Shop = ({ productData, setData }) => {
                     </Col>
                     {/* cart column */}
                     <Col xs={4}>
+                        {/* component that shows total amounts */}
                         <Cart cartData={cart} />
+
+                        {/* component that shows selected products */}
                         <ShowCartProduct product={cart} remove={handleRemoveFromCart} add={handleAddToCart} />
 
                     </Col>
@@ -148,8 +153,10 @@ const Shop = ({ productData, setData }) => {
             {/* when 5 unique robots added display this  */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
+                    {/* modal header */}
                     <Modal.Title>Added 5 different robots</Modal.Title>
                 </Modal.Header>
+                {/* modal message */}
                 <Modal.Body>Can not add more!</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

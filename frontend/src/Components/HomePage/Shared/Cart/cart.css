@@ -6,3 +6,15 @@
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;
 }
+@media only screen and (max-width: 1200px) {
+    .cart {
+        /* margin-left: -1rem; */
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .cart {
+        margin-left: -1rem;
+        width: 120%;
+    }
+}
