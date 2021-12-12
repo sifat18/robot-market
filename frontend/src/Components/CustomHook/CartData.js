@@ -20,7 +20,7 @@ const useCart = (products) => {
             for (const name in savedCart) {
 
                 const addedProduct = products.find(product => product.name === name);
-                console.log(addedProduct);
+                // console.log(addedProduct);
 
                 if (addedProduct) {
                     // setting quantity

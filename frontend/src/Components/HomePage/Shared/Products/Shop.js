@@ -17,7 +17,7 @@ const Shop = ({ productData, setData }) => {
     const [displayRobot, setDisplayRobot] = useState([])
 
     // creating a set for storing unique materials 
-    const [uniqueMaterial, setUniqueMaterial] = useState([])
+    const [uniqueMaterial, setuniqueMaterial] = useState([])
 
     // bootstrap modal display condition state
     const [show, setShow] = useState(false);
@@ -41,8 +41,7 @@ const Shop = ({ productData, setData }) => {
         let materialExist = uniqueMaterial.filter(item => item !== material);
 
         // console.log(materialExist)
-
-        setUniqueMaterial(materialExist)
+        return materialExist;
     }
 
     // remove items from cart 
@@ -64,7 +63,8 @@ const Shop = ({ productData, setData }) => {
             product.quantity = 0;
 
             //calling remove material function 
-            removeMaterials(product.material)
+            let newMats = removeMaterials(product.material)
+            setuniqueMaterial(newMats)
 
             newCart = [...cart, product];
         }
@@ -83,14 +83,15 @@ const Shop = ({ productData, setData }) => {
         let newMaterials = [];
 
         // if no match then add to array
-        if (materialExist === -1) {
+        if (materialExist === -1 && uniqueMaterial.length < 5) {
             newMaterials = [...uniqueMaterial, material]
-            setUniqueMaterial(newMaterials)
+            setuniqueMaterial(newMaterials)
 
-        } else {
+        } else if (materialExist !== -1) {
             // printing if alredy in array
             console.log('already exists')
         }
+
     }
 
     // add to cart function for storaging locally
@@ -98,9 +99,10 @@ const Shop = ({ productData, setData }) => {
         //    check material
         checkMaterials(product.material)
         // console.log(uniqueMaterial)
+        let materialExist = uniqueMaterial.indexOf(product.material);
 
         // if added 5 unique materials then return modal
-        if (uniqueMaterial.length === 4) {
+        if (uniqueMaterial.length === 5 && materialExist === -1) {
             handleShow()
             return
         }
@@ -145,11 +147,16 @@ const Shop = ({ productData, setData }) => {
     }
 
     const clearStorage = () => {
-        // clearing the localstorage 
-        clearTheCart()
+        // removing materials 
+        setuniqueMaterial([])
 
         // UI update 
         setCart([])
+        // clearing the localstorage 
+        clearTheCart()
+
+
+
     }
 
     return (
