@@ -1,6 +1,7 @@
 import React from 'react';
 // imports from bootstrap
 import { Carousel, Container, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 // import images
 import robot1 from './bannerImg/robot1.png'
 import robot2 from './bannerImg/robot2.png'
@@ -13,7 +14,7 @@ const Banner = () => {
             <Navbar bg="dark" variant="dark">
                 <Container>
                     {/* logo */}
-                    <Navbar.Brand href="#home">
+                    <NavLink to='/' className='text-decoration-none'> <Navbar.Brand href="#home">
                         <img
                             alt=""
                             src={navPic}
@@ -22,12 +23,12 @@ const Banner = () => {
                             className="d-inline-block align-top"
                         />{' '}
                         ROBOT~MARKET
-                    </Navbar.Brand>
+                    </Navbar.Brand></NavLink>
                     <Navbar.Toggle />
                     {/* just for display */}
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Home
+                            <NavLink to='/' className='text-decoration-none'>  Home</NavLink>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>
