@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
+
 import useCart from '../../../CustomHook/CartData';
+// function imported from local
 import { addToDb, deleteFromDb } from '../../../LocalStorage/local';
+
+// imported components 
 import Cart from '../Cart/Cart';
 import ShowCartProduct from '../ShowCartProduct/ShowCartProduct';
 import DisplayProduct from './DisplayProduct/DisplayProduct';
 // stylesheet
 import './product.css'
+
 const Shop = ({ productData, setData }) => {
     // setting display data state
     const [displayRobot, setDisplayRobot] = useState([])
+
     // creating a set for storing unique materials 
     const [uniqueMaterial, setUniqueMaterial] = useState([])
 
@@ -29,11 +35,22 @@ const Shop = ({ productData, setData }) => {
         setDisplayRobot(productData);
     }, [productData]);
 
+    // remove from material array
+    const removeMaterials = material => {
+        // filtering out the removed material in array
+        let materialExist = uniqueMaterial.filter(item => item !== material);
+
+        // console.log(materialExist)
+
+        setUniqueMaterial(materialExist)
+    }
+
     // remove items from cart 
     const handleRemoveFromCart = (product) => {
         let newCart = [];
         // checking if exists
         const exists = cart.find(robot => robot.name === product.name);
+
         // remove 1 item from cart and add 1 to stock
         if (exists && exists?.quantity > 0) {
             const rest = cart.filter(data => data.name !== product.name);
@@ -45,6 +62,10 @@ const Shop = ({ productData, setData }) => {
 
             // if not exist set to 1 
             product.quantity = 0;
+
+            //calling remove material function 
+            removeMaterials(product.material)
+
             newCart = [...cart, product];
         }
         // remove from localstorage
@@ -61,6 +82,7 @@ const Shop = ({ productData, setData }) => {
         let materialExist = uniqueMaterial.indexOf(material);
         let newMaterials = [];
 
+        // if no match then add to array
         if (materialExist === -1) {
             newMaterials = [...uniqueMaterial, material]
             setUniqueMaterial(newMaterials)
@@ -121,8 +143,10 @@ const Shop = ({ productData, setData }) => {
         // testing
         // console.log(result)
     }
+
+
     return (
-        <div className='bg-color'>
+        <div className='bg-color pb-5'>
             {/* search div  */}
             <div className="searchDiv h-25 py-4 ">
                 <h2 className='fs-2 fw-bold text-light mt-3'>Search</h2>

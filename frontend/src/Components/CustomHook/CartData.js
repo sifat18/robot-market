@@ -16,6 +16,7 @@ const useCart = (products) => {
             // updated product store here
             const storedCart = [];
 
+            // checking the stored cart
             for (const name in savedCart) {
 
                 const addedProduct = products.find(product => product.name === name);
@@ -27,7 +28,7 @@ const useCart = (products) => {
                     const quantity = savedCart[name];
                     addedProduct.quantity = quantity;
 
-                    // updating storage 
+                    // updating cart 
                     storedCart.push(addedProduct);
                 }
             }
